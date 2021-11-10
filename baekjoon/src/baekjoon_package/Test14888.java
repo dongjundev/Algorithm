@@ -61,7 +61,7 @@ public class Test14888 {
                     case 3:	dfs(num / number[idx], idx + 1);	break;
 
                 }
-                // 재귀호출이 종료되면 다시 해당 연산자 개수를 복구한다.
+                // 재귀호출이 종료되면 다시 해당 연산자 개수를 복구한다. t
                 operator[i]++;
             }
         }
