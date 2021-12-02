@@ -3,8 +3,6 @@ package baekjoon_package;
 import java.util.*;
 import java.io.*;
 
-// https://www.acmicpc.net/problem/7576
-
 public class Test7576 {
     static int N;
     static int M;
