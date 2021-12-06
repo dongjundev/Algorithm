@@ -85,6 +85,7 @@ public class Test7576 {
                 if(box[i][j] == 0)
                     return false;
             }
+
         }
 
         return true;
