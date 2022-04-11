@@ -3,8 +3,6 @@ package baekjoon_package;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.StringTokenizer;
 
 public class Test1303 {
@@ -18,8 +16,8 @@ public class Test1303 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
+        N = Integer.parseInt(st.nextToken());
         arr = new char[N][M];
         visit = new boolean[N][M];
 
@@ -33,7 +31,7 @@ public class Test1303 {
         for(int i=0; i<N; i++){
             for(int j=0; j<M; j++){
                 if(!visit[i][j]){
-                    c=1;
+                    c=0;
                     dfs(arr[i][j],i,j);
 
                     if(arr[i][j]=='W')
@@ -49,7 +47,7 @@ public class Test1303 {
 
     public static void dfs(char ch, int row, int col){
         visit[row][col] = true;
-
+        c++;
         //이동
         for(int i=0; i<dx.length; i++){
             int nx = row + dx[i];
@@ -65,7 +63,7 @@ public class Test1303 {
             if(arr[nx][ny] != ch)
                 continue;
 
-            c++;
+
             dfs(ch, nx, ny);
         }
     }
