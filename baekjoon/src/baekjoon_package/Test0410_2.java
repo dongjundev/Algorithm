@@ -28,13 +28,12 @@ public class Test0410_2 {
             String row = br.readLine();
             for (int j = 0; j < m; j++) {
                 arr[i][j] = row.charAt(j) - '0';
-                System.out.println(arr[i][j]);
             }
         }
 
         bfs(0,0);
 
-        System.out.println("answer: "+arr[n-1][m-1]);
+        System.out.println(arr[n-1][m-1]);
     }
 
     public static void bfs(int x, int y) {
