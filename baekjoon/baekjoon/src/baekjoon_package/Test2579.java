@@ -12,7 +12,10 @@ public class Test2579 {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
 
-        for (int i = 0; i < N; i++) {
+        dp = new Integer[N + 1];
+        arr = new int[N + 1];
+
+        for (int i = 1; i <= N; i++) {
             arr[i] = sc.nextInt();
         }
 
