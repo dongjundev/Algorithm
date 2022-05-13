@@ -1,5 +1,3 @@
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 
 public class 문자열압축 {
     public int solution(String s) {
@@ -55,14 +53,5 @@ public class 문자열압축 {
         }
 
         return compression;
-    }
-
-    @Test
-    public void 정답() {
-        Assertions.assertEquals(7, solution("aabbaccc"));
-        Assertions.assertEquals(9, solution("ababcdcdababcdcd"));
-        Assertions.assertEquals(8, solution("abcabcdede"));
-        Assertions.assertEquals(14, solution("abcabcabcabcdededededede"));
-        Assertions.assertEquals(17, solution("xababcdcdababcdcd"));
     }
 }
