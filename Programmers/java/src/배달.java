@@ -3,54 +3,44 @@ import java.util.Queue;
 
 public class 배달 {
 
-    static int answer = 0;
-    static boolean[] visited;
-
     public int solution(int N, int[][] road, int K) {
-        answer = 0;
-        visited = new boolean[N+1];
+        int answer = 0;
+        int[][] map =new int[N][N];
 
-        bfs(road, 1, K);
+        //모든 map값의 INF값을 넣는다.(플로이드 와샬 쓰기위해) map[정점][정점]은 0으로초기화
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[0].length; j++) {
+                if (i == j){
+                    continue;
+                }
+                map[i][j] = 500001;
+            }
+        }
+        // 정점과 정점을 연결해주는 맵을 그린다.
+        for(int[] data:road){
+            //새로운 다리가 기존에 있던 다리보다 크면 넘긴다. 작으면 갱신한다.
+            if(map[data[0]-1][data[1]-1]<data[2]){
+                continue;
+            }
+            map[data[0]-1][data[1]-1]=data[2];
+            map[data[1]-1][data[0]-1]=data[2];
+        }
+        //플로이드 와샬 : 정점과 정점 사이의 최소거리를 구해주는 알고리즘
+        for(int k=0; k<map.length; k++) {
+            for(int i=0; i<map.length; i++) {
+                for(int j=0; j<map.length; j++) {
+                    if(map[i][j] > map[i][k] + map[k][j])
+                        map[i][j] = map[i][k] + map[k][j];
+                }
+            }
+        }
+        // 1번 마을부터 출발하니, map[0]를 순환한다. 시간이 K이하면 answer++
+        for (int i = 0; i < map[0].length; i++) {
+            if (map[0][i] <= K)
+                answer++;
+        }
 
         return answer;
     }
 
-    private void bfs(int[][] road, int start, int limitTime) {
-        Queue<Home> q = new LinkedList<>();
-        q.offer(new Home(start, 0));
-        visited[start] = true;
-
-        while (!q.isEmpty()) {
-            Home h = q.poll();
-            answer++;
-
-            for (int i = 0; i < road.length; i++) {
-                if (road[i][0] == h.loc && road[i][2] + h.time <= limitTime && visited[road[i][1]] == false) {
-                    q.offer(new Home(road[i][1], h.time + road[i][2]));
-                    visited[road[i][1]] = true;
-                } else if (road[i][1] == h.loc && road[i][2] + h.time <= limitTime && visited[road[i][0]] == false) {
-                    q.offer(new Home(road[i][0], h.time + road[i][2]));
-                    visited[road[i][0]] = true;
-                }
-            }
-        }
-    }
-
-    class Home{
-        int loc;
-        int time;
-
-        public Home(int loc, int time) {
-            this.loc = loc;
-            this.time = time;
-        }
-
-        @Override
-        public String toString() {
-            return "Home{" +
-                    "loc=" + loc +
-                    ", time=" + time +
-                    '}';
-        }
-    }
 }
