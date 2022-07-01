@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Test462 {
+public class Leet462 {
     public int minMoves2(int[] nums) {
         int pic = 0;
         int cnt = 0;

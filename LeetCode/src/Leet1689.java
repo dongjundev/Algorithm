@@ -1,4 +1,4 @@
-public class Test1689 {
+public class Leet1689 {
     public int minPartitions(String n) {
         int MAX = -1;
 

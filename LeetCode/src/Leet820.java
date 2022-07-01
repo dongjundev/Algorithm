@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Test820 {
+public class Leet820 {
     public static int minimumLengthEncoding(String[] words) {
         Set<String> set = new HashSet<>(Arrays.asList(words));
         for(String word: words) {

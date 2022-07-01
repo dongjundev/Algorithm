@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Test1048 {
+public class Leet1048 {
     public int longestStrChain(String[] words) {
         Map<String, Integer> dp = new HashMap<>();
         Arrays.sort(words, (a, b) -> a.length() - b.length());

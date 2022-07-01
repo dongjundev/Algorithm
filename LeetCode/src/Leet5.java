@@ -1,4 +1,4 @@
-public class Test5 {
+public class Leet5 {
     int index, maxLen;
 
     public String longestPalindrome(String s) {

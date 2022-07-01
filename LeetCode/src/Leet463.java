@@ -1,4 +1,4 @@
-public class Test463 {
+public class Leet463 {
     public int islandPerimeter(int[][] grid) {
         int cnt = 0;
 

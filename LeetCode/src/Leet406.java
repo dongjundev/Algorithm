@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class test406 {
+public class Leet406 {
     public int[][] reconstructQueue(int[][] people) {
         Arrays.sort(people, (a, b) -> {
             if (a[0] == b[0]) {

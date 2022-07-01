@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Test581 {
+public class Leet581 {
     public int findUnsortedSubarray(int[] nums) {
         int[] sortedArr = nums.clone();
         Arrays.sort(sortedArr);

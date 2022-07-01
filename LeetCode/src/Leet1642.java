@@ -1,7 +1,7 @@
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-public class Test1642 {
+public class Leet1642 {
     public int furthestBuilding(int[] heights, int bricks, int ladders) {
 
         int maxIdx = 0;
