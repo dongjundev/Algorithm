@@ -15,6 +15,4 @@ public class Leet1143 {
 
         return dp[len1][len2];
     }
-
-    //https://sumim.tistory.com/entry/LeetCode-1143-Longest-Common-Subsequence
 }
