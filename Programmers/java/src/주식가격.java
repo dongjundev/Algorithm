@@ -26,9 +26,11 @@ public class 주식가격 {
 
         int[] answer = new int[list.size()];
 
-        for (int i = 0; i < answer.length; i++) {
-            answer[i] = list.get(i);
-        }
+//        for (int i = 0; i < answer.length; i++) {
+//            answer[i] = list.get(i);
+//        }
+
+        answer = list.stream().mapToInt(Integer::intValue).toArray();
 
         return answer;
     }
