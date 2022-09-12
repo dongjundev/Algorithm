@@ -1,20 +1,49 @@
 import java.util.HashSet;
+import java.util.Set;
 
 public class test {
+    private boolean[] visited;
+    private Set<Integer> set = new HashSet<>();
 
-    public static HashSet<Integer> numbersSet = new HashSet<>();
+    public int solution(String numbers) {
+        int n = numbers.length();
+        visited = new boolean[n];
 
-    public static void recursive(String comb, String others) {
+        recur(0, numbers, "");
 
-        // 1. 현재 조합을 set에 추가한다.
-        if (!comb.equals(""))
-            numbersSet.add(Integer.valueOf(comb));
+        System.out.println(set);
+        return set.size();
+    }
 
-        // 2. 남은 숫자 중 한 개를 더해 새로운 조합을 만든다.
-        for (int i = 0; i < others.length(); i++) {
-            recursive(comb + others.charAt(i), others.substring(0, i) + others.substring(i + 1));
-            System.out.println("others.substring(0, i): "+others.substring(0, i));
-            System.out.println("others.substring(i + 1): "+others.substring(i + 1));
+    private void recur(int depth, String numbers, String str) {
+        if (depth == numbers.length()) {
+            return;
         }
+
+        for (int i = 0; i < numbers.length(); i++) {
+            if (visited[i] == false) {
+                visited[i] = true;
+                String number = str + numbers.charAt(i);
+
+                if (check(Integer.parseInt(number))) {
+                    set.add(Integer.parseInt(number));
+                }
+
+                recur(depth + 1, numbers, number);
+                visited[i] = false;
+            }
+        }
+    }
+
+    private boolean check(int n) {
+        if (n <= 1) return false;
+
+        for (int i = 2; i < n; i++) {
+            if (n % i ==0) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
